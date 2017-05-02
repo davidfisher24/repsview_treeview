@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Repsview Treeview </title>
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="./css/bootstrap-treeview.css" rel="stylesheet">
+  </head>
+
+  <style>
+    .nodeselector {
+      display:none;
+    }
+
+    .glyphicon-stop + .check-icon, .glyphicon-stop {
+      display:none !important;
+    } /* To remove a checkbox for expandable node only */
+
+    .list-group-item {
+      padding:0;
+    }
+
+    .expand-icon {
+      padding:10px 12px 12px 15px;
+      margin:0;
+    }
+
+    .check-icon {
+      padding: 10px 20px 12px 6px;
+    }
+
+    .list-group-item:hover .ok-prompt {
+      opacity: 0.3 !important;
+    }
+
+    .back-link-row {
+      padding:6px;
+    }
+
+    .back-link {
+      padding: 4px;
+    }
+
+  </style>
+  <body>
+  	<div class="container">
+      <h1>Bootstrap Tree View - DOM Tree</h1>
+      <br/>
+      <div class="row">
+        <div class="col-sm-12">
+          <div>
+            Current Nodes Selected: <span class="badge" id="counter">0</span>
+          </div>
+          <label for="treeview"></label>
+          <div id="treeview"></div>
+          <div>
+            <span  id="selected"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./bower_components/jquery/dist/jquery.js"></script>
+  	<script src="./js/bootstrap-treeview.js"></script>
+    <script src="./data-repsview/geog.js"></script>
+    <script src="./data-repsview/product.js"></script>
+  	<script type="text/javascript">
+
+
+  		$(function() {
+
+        var options = {
+          bootstrap2: false, 
+          levels: 0,
+          showTags:true,
+          showCheckbox: true,
+          disabled:false,
+          multiSelect: true,
+          icon: "glyphicon glyphicon-unchecked",
+          state: {
+            checked: true,
+            disabled: true,
+            expanded: true,
+          },
+          data: productData,
+          // Tests
+          counter: "#counter",
+          showCheckbox: false,
+          expandIcon: 'glyphicon glyphicon-chevron-right',
+          collapseIcon: 'glyphicon glyphicon-chevron-down',
+          mobileView: true,
+          searchResultColor: 'black',
+          selectedSummary: '#selected',
+        };
+
+  			$('#treeview').treeview(options);
+  		});
+  	</script>
+  </body>
