@@ -340,6 +340,7 @@
 		var target = $(event.target);
 		var classList = target.attr('class') ? target.attr('class').split(' ') : []; // New attribute
 
+
 		if ((classList.indexOf('back-link') !== -1)) {
 			var nodeId = target.attr('data-id');
 			var backNode = this.getNode(nodeId);
@@ -364,13 +365,6 @@
 		else {
 			this.toggleCheckedState(node, _default.options);
 			this.render(node,"select");
-			/*if (node.selectable) {
-				this.toggleSelectedState(node, _default.options);
-			} else {
-				this.toggleExpandedState(node, _default.options);
-			}*/
-
-			//this.render();
 		}
 	};
 
@@ -545,6 +539,7 @@
 		}
 		this.buildTree(this.tree, 0, clickedNode, clickedEvent);
 	};
+
 
 	// Starting from the root node, and recursing down the
 	// structure we build the tree one node at a time

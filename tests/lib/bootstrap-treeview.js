@@ -546,6 +546,7 @@
 		this.buildTree(this.tree, 0, clickedNode, clickedEvent);
 	};
 
+
 	// Starting from the root node, and recursing down the
 	// structure we build the tree one node at a time
 	Tree.prototype.buildTree = function (nodes, level, clickedNode, clickedEvent) {
