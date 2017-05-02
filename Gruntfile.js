@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           // copy src to example
           { expand: true, cwd: 'bower_components', src: '**/*', dest: 'public/bower_components/' },
           { expand: true, cwd: 'src/css', src: '*', dest: 'public/css/' },
-          { expand: true, cwd: 'src/css', src: '*', dest: 'public/css/' },
+          { expand: true, cwd: 'src/js', src: '*', dest: 'public/js/' },
           { expand: true, cwd: 'data-repsview', src: '*', dest: 'public/data-repsview/' },
           // copy libs to test
           // copy latest libs to tests
