@@ -1,0 +1,50 @@
+======================
+<!-- NEW FUNCTIONS -->
+
+checkAllLevel(level) - pass a level integer and all the level is checked
+checkByClass(cssClass) - pass a class string to check all nodes with this class in it's node array
+checkByIdNames([string]) - pass an array of id names to check those nodes
+checkAllChildren(node) - pass a node to check all children (at all levels)
+checkAllDirectChildren(node) -  pass a node to check all direct children (at one level only)
+getSiblings([node,include]) - select all the siblings of a node. Pass an array, paramater 1 is the node, parameter 2 is boolean to include the main node or not
+openOnNode(node) - mobile version. Chooses a node in order to render that level only
+
+======================
+<-- NEW ATTRIBUTES -->
+allNode: default false. All nodes work as a top level node to select everything below them
+counter: default null. A div element to render a counter of the number of selected elements
+render: default null. A div element to render a list of the selected nodes
+level: parsed directly from the JSON. The current level of the node in the tree structure
+classList: an array of css styled classes for each node that can be used to directly select groups by class
+mobileView: true or false, mobile view,
+searchResultColor: colour in which to highight search results,
+
+========================================
+<!-- New visuals -->
+========================================
+
+1. Three functions can now be chosen for the visuals. 
+	a. a modified buildTree() function now builds the main tree
+	b. this can redirect to buildMobileTree() for the collapsed mobile version
+	c. buildSearchView() is used specifically for building a search view
+	d. buildBreadcrumbs() is used in conjunction with mobile view to build the nodes
+	e. modifications to buildStyleOverride() and buildStyle() to select the correct classes
+	f. at varios points, the parameters clickedNode and clickedEvent are passed in order to keep the logic of mobile and search views
+
+2. Main modifications
+	a. in buildTree() - Changed appending of nodes. Append a tick span depending on if the node is checked or not.
+	b. buildOverrideStyle() - Now changed background colour and text colour if a node is selected
+	c. Added a hover style for .ok-prompt
+	d. showCheckbox: false passed as an option. Now needes to be switched off
+	e. Removed clickHandlers for selectable and added a checked click handler
+	f. Views include additional code blocks to render the selected nodes, and counter, if these are turned on.
+
+3. Search View function
+	a. searchView() function. Prepares the nodes to enter in the search view
+	b. buildSearchView() function. Builds the visuals
+	c. buildBreadcrumbs() function. Used to build the breadcrumbs for each view
+	d. settings - searchView:false, searchNodes: null
+	e. Pass an onSearchColour for highlighted nodes
+	f. Required redirects in the main tree functions
+ 
+

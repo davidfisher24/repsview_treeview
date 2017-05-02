@@ -32,11 +32,11 @@
 		injectStyle: true,
 
 		levels: 2,
-		allNode: false,
-		counter: null,
-		selectedSummary: null,
-		mobileView: false,
-		searchView: false,
+		allNode: false, // New attribute
+		counter: null, // New attribute
+		selectedSummary: null, // New attribute
+		mobileView: false, // New attribute
+		searchView: false, // New attribute
 		searchNodes: null,
 
 		expandIcon: 'glyphicon glyphicon-plus',
@@ -109,7 +109,7 @@
 			// Get methods
 			getNode: $.proxy(this.getNode, this),
 			getParent: $.proxy(this.getParent, this),
-			getSiblings: $.proxy(this.getSiblings, this),
+			getSiblings: $.proxy(this.getSiblings, this), // New function
 			getChildren: $.proxy(this.getChildren, this),
 			getSelected: $.proxy(this.getSelected, this),
 			getUnselected: $.proxy(this.getUnselected, this),
@@ -126,11 +126,11 @@
 			toggleNodeSelected: $.proxy(this.toggleNodeSelected, this),
 			
 			// Group selection methods
-			checkByIdNames: $.proxy(this.checkByIdNames, this),
-			checkAllLevel: $.proxy(this.checkAllLevel, this),
-			checkByClass: $.proxy(this.checkByClass, this),
-			checkAllChildren: $.proxy(this.checkAllChildren, this),
-			checkAllDirectChildren: $.proxy(this.checkAllDirectChildren, this),
+			checkByIdNames: $.proxy(this.checkByIdNames, this), // New function
+			checkAllLevel: $.proxy(this.checkAllLevel, this),  // New function
+			checkByClass: $.proxy(this.checkByClass, this), // New function
+			checkAllChildren: $.proxy(this.checkAllChildren, this), // New function
+			checkAllDirectChildren: $.proxy(this.checkAllDirectChildren, this), // New function
 			
 			// Expand / collapse methods
 			collapseAll: $.proxy(this.collapseAll, this),
@@ -139,7 +139,7 @@
 			expandNode: $.proxy(this.expandNode, this),
 			toggleNodeExpanded: $.proxy(this.toggleNodeExpanded, this),
 			revealNode: $.proxy(this.revealNode, this),
-			openOnNode: $.proxy(this.openOnNode, this),
+			openOnNode: $.proxy(this.openOnNode, this), // New function
 
 			// Expand / collapse methods
 			checkAll: $.proxy(this.checkAll, this),
@@ -286,7 +286,7 @@
 			node.parentId = parent.nodeId;
 
 			// level: the level of the current node in the tree structure
-			node.level = level;
+			node.level = level; // NEW ATTRIBUTE
 
 			// if not provided set selectable default value
 			if (!node.hasOwnProperty('selectable')) {
@@ -338,7 +338,7 @@
 		if (!this.options.enableLinks) event.preventDefault();
 
 		var target = $(event.target);
-		var classList = target.attr('class') ? target.attr('class').split(' ') : [];
+		var classList = target.attr('class') ? target.attr('class').split(' ') : []; // New attribute
 
 		if ((classList.indexOf('back-link') !== -1)) {
 			var nodeId = target.attr('data-id');
@@ -1092,6 +1092,7 @@
 	};
 
 	/**
+		NEW FUNCTION
 		Returns an array of sibling nodes for a given node, if valid otherwise returns undefined.
 		@param {Array} identifier - A valid node or node id, Include true/false the current node
 		@returns {Array} nodes - Sibling nodes
@@ -1318,6 +1319,7 @@
 	};
 
 	/**
+		NEW FUNCTION
 		Opens the tree on the level that is required (in mobile view only).
 		@param {Object|Number} identifiers - A valid node or node id
 		@param {optional Object} options
@@ -1356,6 +1358,7 @@
 	};
 
 	/**
+		NEW FUNCTION
 		Check an array of nodes by their ids
 		@param {ids (array of names)}
 	*/
@@ -1371,6 +1374,7 @@
 	};
 
 	/**
+		NEW FUNCTION
 		Check all children of a specified node
 		@param {node}
 	*/
@@ -1386,6 +1390,7 @@
 	};
 
 	/**
+		NEW FUNCTION
 		Check all direct children of a specified node
 		@param {node}
 	*/
@@ -1399,6 +1404,7 @@
 
 
 	/**
+		// NEW FUNCTION
 		Check all the nodes at a specified level
 		@param {level}
 	*/
@@ -1411,6 +1417,7 @@
 	};
 
 	/**
+		NEW FUNCTION
 		Check all the nodes with have a specified class in the class array
 		@param {css style search class}
 	*/
